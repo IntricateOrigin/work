@@ -11,24 +11,24 @@ router.get("/", (req, res) => {
     res.render("tasks", { tasks });
 });
 
-// Show completed tasks
+
 router.get("/completedTasks", (req, res) => {
     const completedTasks = tasks.filter(task => task.completed);
     res.render("completedTasks", { completedTasks });
 });
 
-// Show unfinished tasks
+
 router.get("/inCompletedTasks", (req, res) => {
     const inCompletedTasks = tasks.filter(task => !task.completed);
     res.render("inCompletedTasks", { inCompletedTasks });
 });
 
-// Show all tasks (both completed and unfinished)
+
 router.get("/dispCatTasks", (req, res) => {
     res.render("dispCatTasks", { tasks });
 });
 
-// Add a new task
+
 router.post("/add-task", (req, res) => {
     const { name, description } = req.body;
     if (!name || !description) {
@@ -40,7 +40,6 @@ router.post("/add-task", (req, res) => {
     res.redirect("/");
 });
 
-// Toggle task completion
 router.post("/toggle-task/:id", (req, res) => {
     const id = parseInt(req.params.id);
     const task = tasks.find(t => t.id === id);
@@ -51,13 +50,10 @@ router.post("/toggle-task/:id", (req, res) => {
     res.redirect("/");
 });
 
-// Delete a task
 router.post("/delete-task/:id", (req, res) => {
     const id = parseInt(req.params.id);
     tasks = tasks.filter(t => t.id !== id);
     res.redirect("/");
 });
-
-
 
 export default router; 

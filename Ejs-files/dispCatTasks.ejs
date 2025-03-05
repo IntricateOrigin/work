@@ -1,5 +1,4 @@
-//fileName: dispCatTasks.ejs
-
+<%#fileName: dispCatTasks.ejs#%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,17 +17,17 @@
                     <%= task.name %> - <%= task.description %>
                     
                     <form action="/toggle-task/<%= task.id %>" method="post" style="display:inline;">
-                        <button type="submit"><%= task.completed ? "Undo" : "Complete" %></button>
+                    <button type="submit"><%= task.completed ? "Undo" : "Complete" %></button>
                     </form>
 
                     <form action="/delete-task/<%= task.id %>" method="post" style="display:inline;">
-                        <button type="submit">Delete</button>
+                    <button type="submit">Delete</button>
                     </form>
                 </li>
             <% }); %>
         </ul>
 
-        <a href="/">Back to Home</a>
+        <a href="/">return to Home</a>
     </div>
 </body>
 </html>
